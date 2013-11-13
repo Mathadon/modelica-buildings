@@ -29,7 +29,7 @@ protected
     "Needed to connect to conditional connector";
   Modelica.Blocks.Math.Gain gai(k=mWat_flow_nominal) "Gain"
     annotation (Placement(transformation(extent={{-80,50},{-60,70}})));
-  Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow preHea
+  Buildings.HeatTransfer.Sources.PrescribedHeatFlow preHea
     "Prescribed heat flow"
     annotation (Placement(transformation(extent={{36,68},{56,88}})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=
