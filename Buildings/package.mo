@@ -201,12 +201,19 @@ have been <b style=\"color:blue\">improved</b> in a
 </p>
 <table class=\"releaseTable\" summary=\"summary\" border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
 
-<tr><td colspan=\"2\"><b>xxx</b>
+<tr><td colspan=\"2\"><b>Buildings.Media</b>
     </td>
 </tr>
-<tr><td valign=\"top\">xxx
+<tr><td valign=\"top\">Buildings.Media.GasesConstantDensity.MoistAir<br/>
+                       Buildings.Media.GasesConstantDensity.MoistAirUnsaturated<br/>
+                       Buildings.Media.GasesPTDecoupled.MoistAir<br/>
+                       Buildings.Media.GasesPTDecoupled.MoistAirUnsaturated<br/>
+                       Buildings.Media.PerfectGases.MoistAir<br/>
+                       Buildings.Media.PerfectGases.MoistAirUnsaturated
     </td>
-    <td valign=\"top\">xxx.
+    <td valign=\"top\">Removed function <code>HeatCapacityOfWater</code>
+                       which is not needed and also not implemented in the
+                       Modelica Standard Library.
     </td>
 </tr>
 </table>
