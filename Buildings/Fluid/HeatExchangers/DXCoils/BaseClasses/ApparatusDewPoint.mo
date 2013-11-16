@@ -27,11 +27,6 @@ protected
     "Minimum enthalpy of apparatus dew point";
 
 initial equation
-/*  XSatMin = Medium.Xsaturation(
-        Medium.setState_pTX(p=p,
-                            T=273.15+3,
-                            X=cat(1,{XSatMin},{1-sum({XSatMin})})));
-*/
   hMin = Medium.h_pTX(
            p=   Medium.p_default,
            T=   TSatMin,
