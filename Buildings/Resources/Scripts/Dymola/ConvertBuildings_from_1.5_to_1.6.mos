@@ -4,9 +4,27 @@
 clear
 
 convertClear();
-// fixme: Buildings.Utilities.Psychrometrics.WetBul_pTX: Remove package Medium
+// Conversion of media
+convertClass("Buildings.Media.ConstantPropertyLiquidWater",
+             "Buildings.Media.Water");
+convertClass("Buildings.Media.GasesPTDecoupled.MoistAir",
+             "Buildings.Media.AirPTDecoupled");
 convertClass("Buildings.Media.GasesPTDecoupled.MoistAirUnsaturated",
-             "AAAA.BBBB");
-convertClass("Buildings.Rooms.MixedAir",
-             "CCCC.DDDD");
+             "Buildings.Media.AirPTDecoupled");
+convertClass("Buildings.Media.GasesPTDecoupled.SimpleAir",
+             "Buildings.Media.AirPTDecoupled");
+convertClass("Buildings.Media.GasesConstantDensity.MoistAir",
+             "Buildings.Media.Air");
+convertClass("Buildings.Media.GasesConstantDensity.MoistAirUnsaturated",
+             "Buildings.Media.Air");
+convertClass("Buildings.Media.GasesConstantDensity.SimpleAir",
+             "Buildings.Media.Air");
+convertClass("Buildings.Media.IdealGases.SimpleAir",
+             "Buildings.Media.Air");
+convertClass("Buildings.Media.PerfectGases.MoistAir",
+             "Buildings.Media.Air");
+convertClass("Buildings.Media.PerfectGases.MoistAirUnsaturated",
+             "Buildings.Media.Air");
+
+// fixme. Remove the line "openModel();"
 openModel("/home/mwetter/proj/ldrd/bie/modeling/github/lbl-srg/modelica-buildings/Buildings/package.mo");
