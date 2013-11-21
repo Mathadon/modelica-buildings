@@ -126,10 +126,9 @@ its class name ends with the string <code>Beta</code>.
   package ReleaseNotes "Release notes"
     extends Modelica.Icons.ReleaseNotes;
 
-
-class Version_1_6_build1 "Version 1.6 build 1"
-  extends Modelica.Icons.ReleaseNotes;
-    annotation (Documentation(info="<html>
+    class Version_1_6_build1 "Version 1.6 build 1"
+      extends Modelica.Icons.ReleaseNotes;
+        annotation (Documentation(info="<html>
 <p>
 Version 1.6 build 1 is ... xxx
 This version updates the <code>Buildings</code> library to the
@@ -216,6 +215,16 @@ have been <b style=\"color:blue\">improved</b> in a
                        Modelica Standard Library.
     </td>
 </tr>
+<tr><td colspan=\"2\"><b>Buildings.Utilities.Psychrometrics</b>
+     </td>
+</tr>
+<tr><td valign=\"top\">Buildings.Utilities.Psychrometrics.WetBul_pTX
+    </td>
+    <td valign=\"top\">Removed package <code>Medium</code>
+                       as this is no longer needed.
+    </td>
+</tr>
+
 </table>
 </p>
 <!-- Errors that have been fixed -->
@@ -277,8 +286,7 @@ xxx
 </ul>
 </p>
 </html>"));
-end Version_1_6_build1;
-
+    end Version_1_6_build1;
 
     class Version_1_5_build1 "Version 1.5 build 1"
       extends Modelica.Icons.ReleaseNotes;
@@ -3933,7 +3941,8 @@ dateModified = "2013-10-24",
 uses(Modelica(version="3.2.1")),
 uses(Modelica_StateGraph2(version="2.0.2")),
 conversion(
- noneFromVersion="1.5",
+ from(version="1.5",
+      script="modelica://Buildings/Resources/Scripts/Dymola/ConvertBuildings_from_1.5_to_1.6.mos"),
  from(version="1.4",
       script="modelica://Buildings/Resources/Scripts/Dymola/ConvertBuildings_from_1.4_to_1.5.mos"),
  noneFromVersion="1.3",
