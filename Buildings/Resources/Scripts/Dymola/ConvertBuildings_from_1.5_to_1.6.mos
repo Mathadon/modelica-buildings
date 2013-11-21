@@ -1,0 +1,12 @@
+// Conversion script for Buildings library
+//  from: Version 1.5
+//  to:   Version 1.6
+clear
+
+convertClear();
+// fixme: Buildings.Utilities.Psychrometrics.WetBul_pTX: Remove package Medium
+convertClass("Buildings.Media.GasesPTDecoupled.MoistAirUnsaturated",
+             "AAAA.BBBB");
+convertClass("Buildings.Rooms.MixedAir",
+             "CCCC.DDDD");
+openModel("/home/mwetter/proj/ldrd/bie/modeling/github/lbl-srg/modelica-buildings/Buildings/package.mo");
