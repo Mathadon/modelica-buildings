@@ -8,23 +8,23 @@ convertClear();
 convertClass("Buildings.Media.ConstantPropertyLiquidWater",
              "Buildings.Media.Water");
 convertClass("Buildings.Media.GasesPTDecoupled.MoistAir",
-             "Buildings.Media.AirPTDecoupled");
+             "Buildings.Obsolete.Media.GasesPTDecoupled.MoistAir");
 convertClass("Buildings.Media.GasesPTDecoupled.MoistAirUnsaturated",
-             "Buildings.Media.AirPTDecoupled");
+             "Buildings.Obsolete.Media.GasesPTDecoupled.MoistAirUnsaturated");
 convertClass("Buildings.Media.GasesPTDecoupled.SimpleAir",
-             "Buildings.Media.AirPTDecoupled");
+             "Buildings.Obsolete.Media.GasesPTDecoupled.SimpleAir");
 convertClass("Buildings.Media.GasesConstantDensity.MoistAir",
-             "Buildings.Media.Air");
+             "Buildings.Obsolete.Media.GasesConstantDensity.MoistAir");
 convertClass("Buildings.Media.GasesConstantDensity.MoistAirUnsaturated",
-             "Buildings.Media.Air");
+             "Buildings.Obsolete.Media.GasesConstantDensity.MoistAirUnsaturated");
 convertClass("Buildings.Media.GasesConstantDensity.SimpleAir",
-             "Buildings.Media.Air");
+             "Buildings.Obsolete.Media.GasesConstantDensity.SimpleAir");
 convertClass("Buildings.Media.IdealGases.SimpleAir",
-             "Buildings.Media.Air");
+             "Buildings.Obsolete.Media.IdealGases.SimpleAir");
 convertClass("Buildings.Media.PerfectGases.MoistAir",
-             "Buildings.Media.Air");
+             "Buildings.Obsolete.Media.PerfectGases.MoistAir");
 convertClass("Buildings.Media.PerfectGases.MoistAirUnsaturated",
-             "Buildings.Media.Air");
+             "Buildings.Obsolete.Media.PerfectGases.MoistAirUnsaturated");
 
 // fixme. Remove the line "openModel();"
 openModel("/home/mwetter/proj/ldrd/bie/modeling/github/lbl-srg/modelica-buildings/Buildings/package.mo");
