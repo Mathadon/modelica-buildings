@@ -218,7 +218,8 @@ have been <b style=\"color:blue\">improved</b> in a
 <tr><td colspan=\"2\"><b>Buildings.Utilities.Psychrometrics</b>
      </td>
 </tr>
-<tr><td valign=\"top\">Buildings.Utilities.Psychrometrics.WetBul_pTX
+<tr><td valign=\"top\">Buildings.Utilities.Psychrometrics.WetBul_pTX<br/>
+                     Buildings.Utilities.Psychrometrics.TWetBul_TDryBulPhi
     </td>
     <td valign=\"top\">Removed package <code>Medium</code>
                        as this is no longer needed.

@@ -2,10 +2,6 @@ within Buildings.Utilities.Psychrometrics;
 block TWetBul_TDryBulPhi
   "Model to compute the wet bulb temperature based on relative humidity"
   extends Modelica.Blocks.Interfaces.BlockIcon;
-  replaceable package Medium =
-    Modelica.Media.Interfaces.PartialCondensingGases "Medium model"
-                                                            annotation (
-      choicesAllMatching = true);
 
   parameter Boolean approximateWetBulb=false
     "Set to true to approximate wet bulb temperature" annotation (Evaluate=true);
@@ -164,6 +160,10 @@ DOI: 10.1175/JAMC-D-11-0143.1
 ",
 revisions="<html>
 <ul>
+<li>
+November 23, 2013 by Michael Wetter:<br/>
+Removed the package <code>Medium</code> which is no longer used.
+</li>
 <li>
 November 20, 2013 by Michael Wetter:<br/>
 Updated model to use

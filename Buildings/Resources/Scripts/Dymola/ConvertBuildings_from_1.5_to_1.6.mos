@@ -26,6 +26,11 @@ convertClass("Buildings.Media.PerfectGases.MoistAir",
 convertClass("Buildings.Media.PerfectGases.MoistAirUnsaturated",
              "Buildings.Obsolete.Media.PerfectGases.MoistAirUnsaturated");
 
+convertModifiers("Buildings.Utilities.Psychrometrics.WetBul_pTX",
+                 {"Medium"}, fill("", 0), true);
+convertModifiers("Buildings.Utilities.Psychrometrics.TWetBul_TDryBulPhi",
+                 {"Medium"}, fill("", 0), true);
+
 
 // Remove homotopyInitialization in mixing volumes
 convertModifiers("Buildings.Fluid.MixingVolumes.MixingVolume",
@@ -34,6 +39,7 @@ convertModifiers("Buildings.Fluid.MixingVolumes.MixingVolumeMoistAir",
                  {"homotopyInitialization"}, fill("", 0), true);
 convertModifiers("Buildings.Fluid.Delays.DelayFirstOrder",
                  {"homotopyInitialization"}, fill("", 0), true);
+
 
 // fixme. Remove the line "openModel();"
 openModel("/home/mwetter/proj/ldrd/bie/modeling/github/lbl-srg/modelica-buildings/Buildings/package.mo");
