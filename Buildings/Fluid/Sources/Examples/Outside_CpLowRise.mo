@@ -2,7 +2,8 @@ within Buildings.Fluid.Sources.Examples;
 model Outside_CpLowRise
   "Test model for source and sink with outside weather data and wind pressure"
   extends Modelica.Icons.Example;
-  package Medium = Buildings.Media.GasesConstantDensity.MoistAirUnsaturated
+  package Medium =
+      Buildings.Obsolete.Media.GasesConstantDensity.MoistAirUnsaturated
     "Medium model for air";
   Buildings.Fluid.Sources.Outside_CpLowRise west(
     redeclare package Medium = Medium,
@@ -55,7 +56,7 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   annotation (__Dymola_Commands(file="modelica://Buildings/Resources/Scripts/Dymola/Fluid/Sources/Examples/Outside_CpLowRise.mos"
-        "Simulate and plot"),                                                                                                   
+        "Simulate and plot"),
     Documentation(info="<html>
 <p>
 This model demonstrates the use of a source for ambient conditions that computes

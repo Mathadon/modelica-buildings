@@ -1,7 +1,8 @@
 within Buildings.Fluid.Sensors.Examples;
 model TraceSubstances "Test model for the extra property sensor"
   extends Modelica.Icons.Example;
- package Medium = Buildings.Media.GasesPTDecoupled.SimpleAir(extraPropertiesNames={"CO2"})
+ package Medium = Buildings.Obsolete.Media.GasesPTDecoupled.SimpleAir (
+                                                             extraPropertiesNames={"CO2"})
     "Medium model";
 
  parameter Modelica.SIunits.MassFlowRate m_flow_nominal = 15*1.2/3600

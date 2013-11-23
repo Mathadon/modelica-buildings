@@ -3,7 +3,7 @@ block X_pTphi
   "Return steam mass fraction as a function of relative humidity phi and temperature T"
   extends
     Buildings.Utilities.Psychrometrics.BaseClasses.HumidityRatioVaporPressure;
-  package Medium = Buildings.Media.PerfectGases.MoistAirUnsaturated
+  package Medium = Buildings.Obsolete.Media.PerfectGases.MoistAirUnsaturated
     "Medium model";
 
 public
@@ -37,7 +37,9 @@ initial algorithm
   i_nw := if i_w == 1 then 2 else 1;
   assert(found, "Did not find medium species 'water' in the medium model. Change medium model.");
 algorithm
-  psat := Buildings.Media.PerfectGases.MoistAirUnsaturated.saturationPressure(T);
+  psat :=
+    Buildings.Obsolete.Media.PerfectGases.MoistAirUnsaturated.saturationPressure(
+    T);
   X[i_w] := Buildings.Utilities.Psychrometrics.Functions.X_pSatpphi(
      pSat=psat, p=p_in_internal, phi=phi);
   //sum(X[:]) = 1; // The formulation with a sum in an equation section leads to a nonlinear equation system

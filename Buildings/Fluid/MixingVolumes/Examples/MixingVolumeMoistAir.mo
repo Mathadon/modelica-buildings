@@ -2,7 +2,8 @@ within Buildings.Fluid.MixingVolumes.Examples;
 model MixingVolumeMoistAir
   extends Modelica.Icons.Example;
 
-  package Medium = Buildings.Media.GasesPTDecoupled.MoistAirUnsaturated;
+  package Medium =
+      Buildings.Obsolete.Media.GasesPTDecoupled.MoistAirUnsaturated;
 
   parameter Modelica.SIunits.MassFlowRate m_flow_nominal = 0.001
     "Nominal mass flow rate";

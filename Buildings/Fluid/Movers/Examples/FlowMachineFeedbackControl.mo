@@ -2,7 +2,8 @@ within Buildings.Fluid.Movers.Examples;
 model FlowMachineFeedbackControl "Flow machine with feedback control"
   extends Modelica.Icons.Example;
 
-  package Medium = Buildings.Media.GasesPTDecoupled.MoistAirUnsaturated;
+  package Medium =
+      Buildings.Obsolete.Media.GasesPTDecoupled.MoistAirUnsaturated;
 
   inner Modelica.Fluid.System system
     annotation (Placement(transformation(extent={{120,-80},{140,-60}})));

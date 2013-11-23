@@ -2,7 +2,7 @@ within Buildings.Fluid.FixedResistances.Examples;
 model SplitterFixedResistanceDpM
   extends Modelica.Icons.Example;
 
- package Medium = Buildings.Media.IdealGases.SimpleAir;
+ package Medium = Buildings.Obsolete.Media.IdealGases.SimpleAir;
 
   Buildings.Fluid.FixedResistances.SplitterFixedResistanceDpM spl(
     m_flow_nominal={1,2,3},
@@ -68,5 +68,6 @@ equation
             -100},{100,100}}),
                       graphics),
 experiment(StopTime=1.0),
-__Dymola_Commands(file="modelica://Buildings/Resources/Scripts/Dymola/Fluid/FixedResistances/Examples/SplitterFixedResistanceDpM.mos" "Simulate and plot"));
+__Dymola_Commands(file="modelica://Buildings/Resources/Scripts/Dymola/Fluid/FixedResistances/Examples/SplitterFixedResistanceDpM.mos"
+        "Simulate and plot"));
 end SplitterFixedResistanceDpM;

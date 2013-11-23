@@ -3,8 +3,7 @@ model StratifiedEnhancedInternalHex
   "Example showing the use of StratifiedEnhancedInternalHex"
   extends Modelica.Icons.Example;
 
-  package Medium = Buildings.Media.ConstantPropertyLiquidWater
-    "Buildings library model for water";
+  package Medium = Buildings.Media.Water "Buildings library model for water";
 
   Buildings.Fluid.Sources.Boundary_pT boundary(      nPorts=1, redeclare
       package Medium = Medium)                                 annotation (

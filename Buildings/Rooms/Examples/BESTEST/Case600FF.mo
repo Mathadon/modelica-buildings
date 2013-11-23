@@ -3,7 +3,7 @@ model Case600FF
   "Basic test with light-weight construction and free floating temperature"
   extends Modelica.Icons.Example;
 
-  package MediumA = Buildings.Media.GasesConstantDensity.SimpleAir
+  package MediumA = Buildings.Obsolete.Media.GasesConstantDensity.SimpleAir
     "Medium model";
   parameter Modelica.SIunits.Angle S_=
     Buildings.HeatTransfer.Types.Azimuth.S "Azimuth for south walls";

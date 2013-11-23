@@ -1,7 +1,8 @@
 within Buildings.Fluid.Sensors.Conversions.Examples;
 model To_VolumeFraction "Example problem for conversion model"
   extends Modelica.Icons.Example;
-  package Medium = Buildings.Media.GasesPTDecoupled.SimpleAir(extraPropertiesNames={"CO2"});
+  package Medium = Buildings.Obsolete.Media.GasesPTDecoupled.SimpleAir (
+    extraPropertiesNames={"CO2"});
 
   Buildings.Fluid.Sensors.Conversions.To_VolumeFraction conMasVolFra(MMMea=
         Modelica.Media.IdealGases.Common.SingleGasesData.CO2.MM)

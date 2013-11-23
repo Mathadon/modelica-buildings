@@ -1,7 +1,8 @@
 within Buildings.Fluid.HeatExchangers.DXCoils.Examples;
 model SingleSpeedValidation
   "Validation model for single speed DX coil with PLR=1"
-  package Medium = Buildings.Media.GasesConstantDensity.MoistAirUnsaturated;
+  package Medium =
+      Buildings.Obsolete.Media.GasesConstantDensity.MoistAirUnsaturated;
   extends Modelica.Icons.Example;
  parameter Modelica.SIunits.Power Q_flow_nominal = datCoi.sta[1].nomVal.Q_flow_nominal
     "Nominal power";

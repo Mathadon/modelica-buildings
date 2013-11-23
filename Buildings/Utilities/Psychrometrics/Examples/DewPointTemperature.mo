@@ -1,7 +1,8 @@
 within Buildings.Utilities.Psychrometrics.Examples;
 model DewPointTemperature "Unit test for dew point temperature calculation"
   extends Modelica.Icons.Example;
-   package Medium = Buildings.Media.PerfectGases.MoistAir "Medium model"
+   package Medium = Buildings.Obsolete.Media.PerfectGases.MoistAir
+    "Medium model"
            annotation (choicesAllMatching = true);
   Buildings.Utilities.Psychrometrics.pW_TDewPoi watVapPre
     annotation (Placement(transformation(extent={{40,0},{60,20}},    rotation=0)));

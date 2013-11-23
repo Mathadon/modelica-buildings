@@ -2,7 +2,8 @@ within Buildings.Fluid.Sources.Examples;
 model Outside_Cp
   "Test model for source and sink with outside weather data and wind pressure"
   extends Modelica.Icons.Example;
-  package Medium = Buildings.Media.GasesConstantDensity.MoistAirUnsaturated
+  package Medium =
+      Buildings.Obsolete.Media.GasesConstantDensity.MoistAirUnsaturated
     "Medium model for air";
   Buildings.Fluid.Sources.Outside_Cp bou1(
     redeclare package Medium = Medium,
@@ -70,7 +71,7 @@ equation
   annotation (
 experiment(StopTime=86400),
 __Dymola_Commands(file="modelica://Buildings/Resources/Scripts/Dymola/Fluid/Sources/Examples/Outside_Cp.mos"
-        "Simulate and plot"),                                                                                                   
+        "Simulate and plot"),
     Documentation(info="<html>
 <p>
 This model demonstrates the use of a source for ambient temperature, pressure and

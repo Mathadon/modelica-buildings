@@ -3,7 +3,7 @@ model System1
   "First part of the system model, consisting of the room with heat transfer"
   extends Modelica.Icons.Example;
   replaceable package MediumA =
-      Buildings.Media.GasesPTDecoupled.MoistAirUnsaturated;
+      Buildings.Obsolete.Media.GasesPTDecoupled.MoistAirUnsaturated;
 
   inner Modelica.Fluid.System system
     annotation (Placement(transformation(extent={{60,-80},{80,-60}})));

@@ -1,7 +1,7 @@
 within Buildings.Fluid.MixingVolumes.Examples;
 model MixingVolumeInitialization "Test model for mixing volume initialization"
   extends Modelica.Icons.Example;
- package Medium = Buildings.Media.IdealGases.SimpleAir;
+ package Medium = Buildings.Obsolete.Media.IdealGases.SimpleAir;
 
   Buildings.Fluid.Sources.Boundary_pT sou1(redeclare package Medium =
         Medium,

@@ -2,9 +2,10 @@ within Buildings.Rooms.FLEXLAB.Rooms.Examples;
 model X3BWithRadiantFloor "Example model showing a use of X3B"
   extends Modelica.Icons.Example;
 
-  package Air = Buildings.Media.GasesConstantDensity.MoistAirUnsaturated
+  package Air =
+      Buildings.Obsolete.Media.GasesConstantDensity.MoistAirUnsaturated
     "Air model used in the example model";
-  package Water = Buildings.Media.ConstantPropertyLiquidWater
+  package Water = Buildings.Media.Water
     "Water model used in the radiant slab loop";
 
   Buildings.Rooms.FLEXLAB.Rooms.X3B.TestCell X3B(

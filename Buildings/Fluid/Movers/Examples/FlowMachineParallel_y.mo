@@ -1,7 +1,7 @@
 within Buildings.Fluid.Movers.Examples;
 model FlowMachineParallel_y "Test model for two flow machines in parallel"
   extends Modelica.Icons.Example;
-  package Medium = Buildings.Media.ConstantPropertyLiquidWater;
+  package Medium = Buildings.Media.Water;
 
   parameter Modelica.SIunits.MassFlowRate m_flow_nominal=
      1 "Nominal mass flow rate";

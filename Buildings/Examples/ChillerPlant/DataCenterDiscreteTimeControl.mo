@@ -2,10 +2,10 @@ within Buildings.Examples.ChillerPlant;
 model DataCenterDiscreteTimeControl
   "Primary only chiller plant system with water-side economizer"
   extends Modelica.Icons.Example;
-  package MediumAir = Buildings.Media.GasesPTDecoupled.SimpleAir "Medium model";
-  package MediumCHW = Buildings.Media.ConstantPropertyLiquidWater
+  package MediumAir = Buildings.Obsolete.Media.GasesPTDecoupled.SimpleAir
     "Medium model";
-  package MediumCW = Buildings.Media.ConstantPropertyLiquidWater "Medium model";
+  package MediumCHW = Buildings.Media.Water "Medium model";
+  package MediumCW = Buildings.Media.Water "Medium model";
   parameter Modelica.SIunits.MassFlowRate mAir_flow_nominal=roo.QRoo_flow/(1005
       *15) "Nominal mass flow rate at fan";
   parameter Modelica.SIunits.Power P_nominal=80E3

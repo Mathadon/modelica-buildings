@@ -4,7 +4,7 @@ model BoreholeSegment
   extends Modelica.Icons.Example;
    inner Modelica.Fluid.System system
     annotation (Placement(transformation(extent={{-80,-80},{-60,-60}})));
- package Medium = Buildings.Media.ConstantPropertyLiquidWater;
+ package Medium = Buildings.Media.Water;
  Buildings.HeatTransfer.Data.BoreholeFillings.Bentonite                    bento;
  Buildings.Fluid.HeatExchangers.Boreholes.BaseClasses.BoreholeSegment seg(
     redeclare package Medium = Medium,
@@ -56,7 +56,7 @@ equation
       points={{3.2,12},{4,12},{4,20},{-40,20}},
       color={0,127,255},
       smooth=Smooth.None));
- annotation(
+ annotation (
 experiment(StopTime=157680000),
 __Dymola_Commands(file="modelica://Buildings/Resources/Scripts/Dymola/Fluid/HeatExchangers/Boreholes/BaseClasses/Examples/BoreholeSegment.mos"
         "Simulate and plot"),

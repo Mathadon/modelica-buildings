@@ -1,7 +1,8 @@
 within Buildings.Rooms.Examples.TestConditionalConstructions.BaseClasses;
 partial model PartialTestModel
   "Partial model that is used to build the test cases"
-  package MediumA = Buildings.Media.GasesPTDecoupled.MoistAirUnsaturated
+  package MediumA =
+      Buildings.Obsolete.Media.GasesPTDecoupled.MoistAirUnsaturated
     "Medium model";
   parameter Integer nConExt
     "Number of exterior constructions that do not have a window";

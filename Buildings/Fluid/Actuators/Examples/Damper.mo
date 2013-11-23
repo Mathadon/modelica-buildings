@@ -1,7 +1,7 @@
 within Buildings.Fluid.Actuators.Examples;
 model Damper
   extends Modelica.Icons.Example;
-  package Medium = Buildings.Media.IdealGases.SimpleAir;
+  package Medium = Buildings.Obsolete.Media.IdealGases.SimpleAir;
 
   Buildings.Fluid.Actuators.Dampers.Exponential res(
     A=1,

@@ -1,7 +1,7 @@
 within Buildings.Fluid.HeatExchangers.RadiantSlabs.Examples;
 model SingleCircuitMultipleCircuit "Model that tests the radiant slab"
   extends Modelica.Icons.Example;
- package Medium = Buildings.Media.ConstantPropertyLiquidWater;
+ package Medium = Buildings.Media.Water;
       inner Modelica.Fluid.System system
     annotation (Placement(transformation(extent={{80,-120},{100,-100}})));
   Sources.Boundary_ph sin(redeclare package Medium = Medium, nPorts=3,

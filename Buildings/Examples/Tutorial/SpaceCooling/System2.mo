@@ -3,10 +3,10 @@ model System2
   "Second part of the system model with air supply and open loop control"
   extends Modelica.Icons.Example;
   replaceable package MediumA =
-      Buildings.Media.GasesPTDecoupled.MoistAirUnsaturated;
+      Buildings.Obsolete.Media.GasesPTDecoupled.MoistAirUnsaturated;
 
   replaceable package MediumW =
-      Buildings.Media.ConstantPropertyLiquidWater;
+      Buildings.Media.Water;
 
   inner Modelica.Fluid.System system
     annotation (Placement(transformation(extent={{60,-120},{80,-100}})));

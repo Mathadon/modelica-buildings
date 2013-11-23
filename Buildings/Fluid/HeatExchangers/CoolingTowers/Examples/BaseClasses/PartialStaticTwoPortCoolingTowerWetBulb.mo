@@ -3,7 +3,7 @@ model PartialStaticTwoPortCoolingTowerWetBulb
   "Partial test model for cooling tower with wet bulb temperature as potential for heat transfer"
   extends PartialStaticTwoPortCoolingTower(exp(redeclare package Medium = Medium_W));
 
-  package Medium_A = Buildings.Media.PerfectGases.MoistAir
+  package Medium_A = Buildings.Obsolete.Media.PerfectGases.MoistAir
     "Medium model for air";
 
   Buildings.Utilities.Psychrometrics.TWetBul_TDryBulPhi wetBulTem(
