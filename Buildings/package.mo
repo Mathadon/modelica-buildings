@@ -145,7 +145,6 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
     </td>
     </tr>
 </table>
-</p>
 <!-- New components for existing libraries -->
 <p>
 The following <b style=\"color:blue\">new components</b> have been added
@@ -161,7 +160,6 @@ to <b style=\"color:blue\">existing</b> libraries:
     </td> 
     </tr>
 </table>
-</p>
 <!-- Backward compatible changes -->
 <p>
 The following <b style=\"color:blue\">existing components</b>
@@ -191,7 +189,6 @@ have been <b style=\"color:blue\">improved</b> in a
     </td>
 </tr>
 </table>
-</p>
 <!-- Non-backward compatible changes to existing components -->
 <p>
 The following <b style=\"color:blue\">existing components</b>
@@ -227,7 +224,6 @@ have been <b style=\"color:blue\">improved</b> in a
 </tr>
 
 </table>
-</p>
 <!-- Errors that have been fixed -->
 <p>
 The following <b style=\"color:red\">critical errors</b> have been fixed (i.e., errors
@@ -243,7 +239,6 @@ that can lead to wrong simulation results):
     </td>
 </tr>
 </table>
-</p>
 <!-- Uncritical errors -->
 <p>
 The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e., errors
@@ -260,14 +255,13 @@ units are wrong or errors in documentation):
     </td>
 </tr>
 </table>
-</p>
 <!-- Github issues -->
 <p>
 The following
 <a href=\"https://github.com/lbl-srg/modelica-buildings/issues\">issues</a>
 have been fixed:
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table class=\"releaseTable\" summary=\"summary\" border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><b>xxx</b>
     </td>
 </tr>
@@ -285,7 +279,6 @@ Note:
 xxx
 </li>
 </ul>
-</p>
 </html>"));
     end Version_1_6_build1;
 
