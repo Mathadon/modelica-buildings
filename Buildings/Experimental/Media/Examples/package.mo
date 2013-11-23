@@ -1,4 +1,4 @@
-within Buildings.Media;
+within Buildings.Experimental.Media;
 package Examples "Collection of models that test the media models"
   extends Modelica.Icons.ExamplesPackage;
 
