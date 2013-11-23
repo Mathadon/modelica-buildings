@@ -4,8 +4,7 @@ block TWetBul_TDryBulXi
   extends Modelica.Blocks.Interfaces.BlockIcon;
   replaceable package Medium =
     Modelica.Media.Interfaces.PartialCondensingGases "Medium model"
-                                                            annotation (
-      choicesAllMatching = true);
+      annotation (choicesAllMatching = true);
 
   parameter Boolean approximateWetBulb=false
     "Set to true to approximate wet bulb temperature" annotation (Evaluate=true);
