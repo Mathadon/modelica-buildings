@@ -30,16 +30,16 @@ partial model PartialThreeWayResistance
     annotation(Evaluate=true, Dialog(tab="Advanced"));
 
   replaceable Buildings.Fluid.Interfaces.PartialTwoPortInterface res1(redeclare
-      package Medium = Medium, allowFlowReversal=true, homotopyInitialization=homotopyInitialization)
+      package Medium = Medium, allowFlowReversal=true)
     "Partial model, to be replaced with a fluid component"
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}}, rotation=
             0)));
   replaceable Buildings.Fluid.Interfaces.PartialTwoPortInterface res2(redeclare
-      package Medium = Medium, allowFlowReversal=true, homotopyInitialization=homotopyInitialization)
+      package Medium = Medium, allowFlowReversal=true)
     "Partial model, to be replaced with a fluid component"
     annotation (Placement(transformation(extent={{60,-10},{40,10}}, rotation=0)));
   replaceable Buildings.Fluid.Interfaces.PartialTwoPortInterface res3(redeclare
-      package Medium = Medium, allowFlowReversal=true, homotopyInitialization=homotopyInitialization)
+      package Medium = Medium, allowFlowReversal=true)
     "Partial model, to be replaced with a fluid component"
     annotation (Placement(transformation(
         origin={0,-50},
@@ -94,8 +94,8 @@ equation
           -6.12323e-016,-79},{0,-79},{0,-100}},                      color={0,
           127,255}));
   connect(res1.port_b,vol. ports[1]) annotation (Line(
-      points={{-40,0},{-30.6666,0},{-30.6666,5.55115e-017},{-21.3333,
-          5.55115e-017},{-21.3333,0},{-2.66667,0}},
+      points={{-40,0},{-30.6666,0},{-30.6666,5.55115e-17},{-21.3333,5.55115e-17},
+          {-21.3333,0},{-2.66667,0}},
       color={0,127,255},
       smooth=Smooth.None));
   connect(res2.port_b,vol. ports[2]) annotation (Line(
@@ -104,7 +104,7 @@ equation
       color={0,127,255},
       smooth=Smooth.None));
   connect(res3.port_b,vol. ports[3]) annotation (Line(
-      points={{6.12323e-016,-40},{2.66667,-40},{2.66667,0}},
+      points={{6.12323e-16,-40},{2.66667,-40},{2.66667,0}},
       color={0,127,255},
       smooth=Smooth.None));
   if not dynamicBalance then
