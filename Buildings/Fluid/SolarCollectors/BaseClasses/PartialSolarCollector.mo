@@ -90,10 +90,9 @@ model PartialSolarCollector "Partial model for solar collectors"
     each final p_start=p_start,
     each final T_start=T_start,
     each m_flow_small=m_flow_small,
-    each homotopyInitialization=homotopyInitialization,
     each final V=(perPar.V*nPanels_internal)/nSeg)
-    "Volume of fluid in one segment of the solar collector"
-    annotation (Placement(transformation(
+    "Volume of fluid in one segment of the solar collector" annotation (
+      Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=180,
         origin={48,-16})));

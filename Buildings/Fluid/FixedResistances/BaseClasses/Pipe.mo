@@ -48,10 +48,8 @@ model Pipe
     each C_start=C_start,
     each C_nominal=C_nominal,
     each final m_flow_small=m_flow_small,
-    each final homotopyInitialization=homotopyInitialization,
     each final allowFlowReversal=allowFlowReversal) "Volume for pipe fluid"
-                                                  annotation (Placement(
-        transformation(extent={{-1,-18},{19,-38}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-1,-18},{19,-38}}, rotation=0)));
 
 protected
   parameter Modelica.SIunits.Volume VPipe=Modelica.Constants.pi*(diameter/2.0)^
