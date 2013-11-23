@@ -1,8 +1,7 @@
 within Buildings.Fluid.Sources.Examples;
 model TraceSubstancesFlowSource
   extends Modelica.Icons.Example;
-  package Medium = Buildings.Obsolete.Media.GasesPTDecoupled.SimpleAir (
-                                                              extraPropertiesNames={"CO2"});
+  package Medium = Buildings.Media.Air(extraPropertiesNames={"CO2"});
 
   MixingVolumes.MixingVolume vol(
     redeclare package Medium = Medium,

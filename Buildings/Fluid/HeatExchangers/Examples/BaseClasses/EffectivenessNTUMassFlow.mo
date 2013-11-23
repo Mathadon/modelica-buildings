@@ -2,7 +2,7 @@ within Buildings.Fluid.HeatExchangers.Examples.BaseClasses;
 partial model EffectivenessNTUMassFlow
   "Partial model of epsilon-NTU coil that tests variable mass flow rates"
   package Medium1 = Buildings.Media.Water;
-  package Medium2 = Buildings.Obsolete.Media.PerfectGases.MoistAirUnsaturated;
+  package Medium2 = Buildings.Media.Air;
   parameter Modelica.SIunits.Temperature T_a1_nominal=5 + 273.15;
   parameter Modelica.SIunits.Temperature T_b1_nominal=10 + 273.15;
   parameter Modelica.SIunits.Temperature T_a2_nominal=30 + 273.15;

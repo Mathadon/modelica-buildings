@@ -2,7 +2,7 @@ within Buildings.Fluid.Interfaces.Examples;
 model HumidifierPrescribed
   extends Modelica.Icons.Example;
 
- package Medium = Buildings.Obsolete.Media.PerfectGases.MoistAirUnsaturated;
+ package Medium = Buildings.Media.Air;
  parameter Modelica.SIunits.MassFlowRate mWat_flow_nominal = 0.001
     "Nominal water mass flow rate";
   Humidifier hea1(redeclare package Medium =

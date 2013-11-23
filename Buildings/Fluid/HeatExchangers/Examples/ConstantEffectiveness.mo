@@ -4,8 +4,7 @@ model ConstantEffectiveness
   extends Modelica.Icons.Example;
 
  package Medium1 = Buildings.Media.Water;
- package Medium2 =
-      Buildings.Obsolete.Media.GasesPTDecoupled.MoistAirUnsaturated;
+ package Medium2 = Buildings.Media.Air;
   Buildings.Fluid.Sources.Boundary_pT sin_2(                       redeclare
       package Medium = Medium2,
     use_p_in=true,

@@ -12,8 +12,6 @@ partial model PartialMixingVolume
   parameter Modelica.SIunits.MassFlowRate m_flow_small(min=0) = 1E-4*abs(m_flow_nominal)
     "Small mass flow rate for regularization of zero flow"
     annotation(Dialog(tab = "Advanced"));
-  parameter Boolean homotopyInitialization = true "= true, use homotopy method"
-    annotation(Evaluate=true, Dialog(tab="Advanced"));
   parameter Boolean allowFlowReversal = system.allowFlowReversal
     "= true to allow flow reversal in medium, false restricts to design direction (ports[1] -> ports[2]). Used only if model has two ports."
     annotation(Dialog(tab="Assumptions"), Evaluate=true);
@@ -43,8 +41,7 @@ protected
     redeclare final package Medium=Medium,
     final m_flow_nominal = m_flow_nominal,
     final allowFlowReversal = allowFlowReversal,
-    final m_flow_small = m_flow_small,
-    final homotopyInitialization = homotopyInitialization) if
+    final m_flow_small = m_flow_small) if
         useSteadyStateTwoPort "Model for steady-state balance if nPorts=2"
         annotation (Placement(transformation(extent={{-20,0},{0,20}})));
   Buildings.Fluid.Interfaces.ConservationEquation dynBal(
@@ -58,8 +55,7 @@ protected
     final C_nominal=C_nominal,
     final fluidVolume = V,
     m(start=V*rho_start),
-    U(start=V*rho_start*Medium.specificInternalEnergy(
-        state_start)),
+    U(start=V*rho_start*u_start),
     nPorts=nPorts) if
         not useSteadyStateTwoPort "Model for dynamic energy balance"
     annotation (Placement(transformation(extent={{40,0},{60,20}})));
@@ -73,6 +69,11 @@ protected
    state=state_start) "Density, used to compute start and guess values"
   annotation (Evaluate=true);
 
+  parameter Modelica.SIunits.SpecificInternalEnergy u_start=
+    Medium.specificInternalEnergy(Medium.setState_pTX(
+      T=T_start,
+      p=p_start,
+      X=X_start[1:Medium.nXi])) "Start value for specific internal energy";
   final parameter Medium.ThermodynamicState state_default = Medium.setState_pTX(
       T=Medium.T_default,
       p=Medium.p_default,

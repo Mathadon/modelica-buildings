@@ -1,7 +1,6 @@
 within Buildings.Fluid.Interfaces;
 partial model PartialTwoPortInterface
   "Partial model transporting fluid between two ports without storing mass or energy"
-  import Modelica.Constants;
   extends Modelica.Fluid.Interfaces.PartialTwoPort(
     port_a(p(start=Medium.p_default,
              nominal=Medium.p_default)),
@@ -14,9 +13,6 @@ partial model PartialTwoPortInterface
   parameter Modelica.SIunits.MassFlowRate m_flow_small(min=0) = 1E-4*abs(m_flow_nominal)
     "Small mass flow rate for regularization of zero flow"
     annotation(Dialog(tab = "Advanced"));
-  parameter Boolean homotopyInitialization = true "= true, use homotopy method"
-    annotation(Evaluate=true, Dialog(tab="Advanced"));
-
   // Diagnostics
    parameter Boolean show_T = false
     "= true, if actual temperature at port is computed"
@@ -68,6 +64,15 @@ Buildings.Fluid.Interfaces.StaticTwoPortHeatMassExchanger</a>.
 </p>
 </html>", revisions="<html>
 <ul>
+<li>
+November 12, 2013 by Michael Wetter:<br/>
+Removed <code>import Modelica.Constants;</code> statement.
+</li>
+<li>
+November 11, 2013 by Michael Wetter:<br/>
+Removed the parameter <code>homotopyInitialization</code>
+as it is no longer used in this model.
+</li>
 <li>
 November 10, 2013 by Michael Wetter:<br/>
 In the computation of <code>sta_a</code> and <code>sta_b</code>,

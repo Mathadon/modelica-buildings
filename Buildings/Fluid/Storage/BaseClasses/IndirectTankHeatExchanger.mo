@@ -36,12 +36,16 @@ model IndirectTankHeatExchanger
   parameter Modelica.SIunits.Diameter dExtHex
     "Exterior diameter of the heat exchanger pipe";
 
-  parameter Modelica.Fluid.Types.Dynamics energyDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial
+  parameter Modelica.Fluid.Types.Dynamics energyDynamics=
+    Modelica.Fluid.Types.Dynamics.DynamicFreeInitial
     "Formulation of energy balance"
     annotation(Evaluate=true, Dialog(tab = "Dynamics", group="Equations"));
   parameter Modelica.Fluid.Types.Dynamics massDynamics=energyDynamics
     "Formulation of mass balance"
     annotation(Evaluate=true, Dialog(tab = "Dynamics", group="Equations"));
+
+  parameter Boolean homotopyInitialization = true "= true, use homotopy method"
+    annotation(Evaluate=true, Dialog(tab="Advanced"));
 
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port[nSeg]
     "Heat port connected to water inside the tank"

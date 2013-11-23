@@ -1,8 +1,7 @@
 within Buildings.Utilities.Psychrometrics.Functions.Examples;
 model X_pSatpphi "Model to test X_pSatpphi function"
   extends Modelica.Icons.Example;
-  package Medium = Buildings.Obsolete.Media.PerfectGases.MoistAir
-    "Medium model"
+  package Medium = Buildings.Media.Air "Medium model"
            annotation (choicesAllMatching = true);
   parameter Modelica.SIunits.Temperature T = 293.15 "Temperature";
   Modelica.SIunits.AbsolutePressure pSat "Saturation pressure";

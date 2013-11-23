@@ -2,19 +2,21 @@ within Buildings.Fluid.Sensors.Examples;
 model SpecificEnthalpy "Test model for the enthalpy flow rate sensors"
   extends Modelica.Icons.Example;
 
-  package Medium = Buildings.Obsolete.Media.IdealGases.SimpleAir "Medium model";
+  package Medium = Buildings.Media.Air "Medium model";
 
   Buildings.Fluid.Sources.MassFlowSource_h sou(
     redeclare package Medium = Medium,
     use_m_flow_in=true,
     use_h_in=false,
-    nPorts=2) "Flow boundary condition"
+    nPorts=2,
+    X={0,1}) "Flow boundary condition"
     annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
   Buildings.Fluid.Sources.Boundary_ph sin(
     redeclare package Medium = Medium,
     use_h_in=false,
     h=20,
-    nPorts=1) "Flow boundary condition"
+    nPorts=1,
+    X={0,1}) "Flow boundary condition"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
