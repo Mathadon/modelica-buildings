@@ -6,9 +6,9 @@ model PartialStaticTwoPortCoolingTowerWetBulb
   package Medium_A = Buildings.Obsolete.Media.PerfectGases.MoistAir
     "Medium model for air";
 
-  Buildings.Utilities.Psychrometrics.TWetBul_TDryBulPhi wetBulTem(
-    redeclare package Medium = Medium_A) "Model for wet bulb temperature"
-    annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));
+  Buildings.Utilities.Psychrometrics.TWetBul_TDryBulPhi wetBulTem
+    "Model for wet bulb temperature" annotation (Placement(transformation(
+          extent={{-20,40},{0,60}}, rotation=0)));
 equation
   connect(weaBus.pAtm, wetBulTem.p) annotation (Line(
       points={{-60,50},{-50,50},{-50,42},{-21,42}},

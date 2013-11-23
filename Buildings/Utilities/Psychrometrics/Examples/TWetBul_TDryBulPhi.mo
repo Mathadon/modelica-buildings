@@ -2,12 +2,11 @@ within Buildings.Utilities.Psychrometrics.Examples;
 model TWetBul_TDryBulPhi "Model to test the wet bulb temperature computation"
   extends Modelica.Icons.Example;
 
- package Medium = Buildings.Media.Air
-    "Medium model"
+ package Medium = Buildings.Media.Air "Medium model"
            annotation (choicesAllMatching = true);
 
-  Buildings.Utilities.Psychrometrics.TWetBul_TDryBulPhi wetBulPhi(redeclare
-      package Medium = Medium) "Model for wet bulb temperature"
+  Buildings.Utilities.Psychrometrics.TWetBul_TDryBulPhi wetBulPhi
+    "Model for wet bulb temperature"
     annotation (Placement(transformation(extent={{0,40},{20,60}}, rotation=0)));
   Modelica.Blocks.Sources.Constant p(k=101325) "Pressure"
                                     annotation (Placement(transformation(extent={{-100,
@@ -21,10 +20,9 @@ model TWetBul_TDryBulPhi "Model to test the wet bulb temperature computation"
   Modelica.Blocks.Sources.Constant TDryBul(k=283.15) "Dry bulb temperature"
                                     annotation (Placement(transformation(extent={{-100,60},
             {-80,80}},           rotation=0)));
-  Buildings.Utilities.Psychrometrics.TWetBul_TDryBulPhi wetBulPhiApp(redeclare
-      package Medium = Medium, approximateWetBulb=true)
-    "Model for wet bulb temperature"
-    annotation (Placement(transformation(extent={{0,0},{20,20}},  rotation=0)));
+  Buildings.Utilities.Psychrometrics.TWetBul_TDryBulPhi wetBulPhiApp(
+      approximateWetBulb=true) "Model for wet bulb temperature"
+    annotation (Placement(transformation(extent={{0,0},{20,20}}, rotation=0)));
 equation
   connect(p.y, wetBulPhi.p)
                          annotation (Line(points={{-79,-10},{-40,-10},{-40,42},{
