@@ -20,6 +20,9 @@ model Pipe
     "Reynolds number where transition to turbulent starts"
     annotation (Dialog(tab="Flow resistance"));
 
+  parameter Boolean homotopyInitialization = true "= true, use homotopy method"
+    annotation(Evaluate=true, Dialog(tab="Advanced"));
+
   Buildings.Fluid.FixedResistances.FixedResistanceDpM res(
     redeclare final package Medium = Medium,
     final from_dp=from_dp,
