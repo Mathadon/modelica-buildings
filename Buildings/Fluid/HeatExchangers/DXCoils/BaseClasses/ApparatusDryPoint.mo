@@ -12,17 +12,17 @@ block ApparatusDryPoint "Calculates air properties at dry coil surface"
   output Modelica.SIunits.SpecificEnthalpy hDry
     "Enthalpy of air at coil surface";
 protected
-  Modelica.SIunits.MassFraction XEvaInVec[Medium.nX]
-    "Mass fraction of air inlet condition";
+  Modelica.SIunits.MassFraction XEvaInVec[2]
+    "Mass fraction of water vapor at inlet condition";
   Modelica.SIunits.Temperature TADP(start=283.15)
     "Apparatus dew point temperature";
   Modelica.SIunits.SpecificEnthalpy hMin
     "Minimum enthalpy of apparatus dew point";
 equation
-  XEvaInVec =cat(1,{XEvaIn},{1-sum({XEvaIn})});
+  XEvaInVec ={XEvaIn, 1-XEvaIn};
 
   XEvaIn = Buildings.Utilities.Psychrometrics.Functions.X_pW(
-     p_w=Medium.saturationPressureLiquid(TADP), p=p);
+     p_w=Buildings.Utilities.Psychrometrics.Functions.saturationPressureLiquid(TADP), p=p);
 
   hMin = Medium.specificEnthalpy(Medium.setState_pTX(p=p, T=TADP, X=XEvaInVec));
 
@@ -79,6 +79,13 @@ Buildings.Fluid.HeatExchangers.DXCoils.BaseClasses.PartialSurfaceCondition</a>.
 </html>",
 revisions="<html>
 <ul>
+<li>
+November 23, 2013 by Michael Wetter:<br/>
+Replaced function calls for moist air properties of the medium package
+to use the functions implemented in 
+<code>Buildings.Utilities.Psychrometrics.Functions</code>
+as the functions have been removed from the medium model.
+</li>
 <li>
 September 21, 2012 by Michael Wetter:<br/>
 Revised implementation and documentation.

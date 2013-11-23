@@ -27,7 +27,7 @@ protected
     "Minimum enthalpy of apparatus dew point";
 
 initial equation
-  hMin = Medium.h_pTX(
+  hMin = Medium.specificEnthalpy_pTX(
            p=   Medium.p_default,
            T=   TSatMin,
            X=   cat(1,{XSatMin},{1-sum({XSatMin})}));
@@ -90,6 +90,11 @@ Buildings.Fluid.HeatExchangers.DXCoils.BaseClasses.PartialSurfaceCondition</a>.
 </html>",
 revisions="<html>
 <ul>
+<li>
+November 23, 2013 by Michael Wetter:<br/>
+Corrected call to compute <code>Medium.specificEnthalpy_pTX</code>
+as it used the implementation that is not available in all medium models.
+</li>
 <li>
 September 21, 2012 by Michael Wetter:<br/>
 Revised implementation and documentation.

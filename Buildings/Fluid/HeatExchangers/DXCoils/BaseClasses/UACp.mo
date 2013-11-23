@@ -40,10 +40,10 @@ initial equation
 //---------------------------------------Eq.2---------------------------------------//
   if homotopyInitialization then
     psat_ADP_nominal=homotopy(
-      actual=Medium.saturationPressureLiquid(Tsat=TADP_nominal),
+      actual=Buildings.Utilities.Psychrometrics.Functions.saturationPressureLiquid(TSat=TADP_nominal),
       simplified=1252.393+83.933*(TADP_nominal-283.15));
   else // do not use homotopy
-    psat_ADP_nominal=Medium.saturationPressureLiquid(TADP_nominal);
+    psat_ADP_nominal=Buildings.Utilities.Psychrometrics.Functions.saturationPressureLiquid(TSat=TADP_nominal);
   end if;
   //  Taylor series
   //  psat_ADP_nominal=1252.393+83.933*(TADP_nominal-283.15);
@@ -65,7 +65,7 @@ initial equation
         phi=phiADP_nominal);
   end if;
 //-----------------------------------uACp calculations-----------------------------//
-  hADP_nominal = Medium.h_pTX(
+  hADP_nominal = Medium.specificEnthalpy_pTX(
               p=per.p_nominal,
               T=TADP_nominal,
               X=cat(1,{XADP_nominal}, {1-sum({XADP_nominal})}));
@@ -107,6 +107,15 @@ and, hence,
 </html>",
 revisions="<html>
 <ul>
+<li>
+November 23, 2013 by Michael Wetter:<br/>
+Replaced function calls for moist air properties of the medium package
+to use the functions implemented in 
+<code>Buildings.Utilities.Psychrometrics.Functions</code>
+as the functions have been removed from the medium model.<br/>
+Corrected call to compute <code>Medium.specificEnthalpy_pTX</code>
+as it used the implementation that is not available in all medium models.
+</li>
 <li>
 September 21, 2012 by Michael Wetter:<br/>
 Revised implementation and documentation.

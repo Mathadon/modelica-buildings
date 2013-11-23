@@ -108,11 +108,9 @@ protected
   Modelica.SIunits.MassFraction dX
     "Difference in water vapor concentration that drives mass transfer";
 
-  constant Modelica.SIunits.SpecificHeatCapacity cpAir_nominal=
-     Buildings.Media.PerfectGases.Common.SingleGasData.Air.cp
+  constant Modelica.SIunits.SpecificHeatCapacity cpAir_nominal=1006
     "Specific heat capacity of air";
-  constant Modelica.SIunits.SpecificHeatCapacity cpSte_nominal=
-     Buildings.Media.PerfectGases.Common.SingleGasData.H2O.cp
+  constant Modelica.SIunits.SpecificHeatCapacity cpSte_nominal=1860
     "Specific heat capacity of water vapor";
 initial equation
   QSen_flow_nominal=nomVal.SHR_nominal * nomVal.Q_flow_nominal;
@@ -122,7 +120,7 @@ initial equation
   mMax = -QLat_flow_nominal * nomVal.tWet/h_fg;
 
   XEvaIn_nominal=Buildings.Utilities.Psychrometrics.Functions.X_pSatpphi(
-     pSat=Medium.saturationPressure(nomVal.TEvaIn_nominal),
+     pSat=Buildings.Utilities.Psychrometrics.Functions.saturationPressureLiquid(TSat=nomVal.TEvaIn_nominal),
      p=nomVal.p_nominal,
      phi=nomVal.phiIn_nominal);
   XEvaOut_nominal = XEvaIn_nominal + QLat_flow_nominal/nomVal.m_flow_nominal/h_fg;
@@ -146,7 +144,7 @@ initial equation
   // be used here because blocks cannot be used to assign parameter
   // values.
   XEvaWetBulOut_nominal   = Buildings.Utilities.Psychrometrics.Functions.X_pSatpphi(
-      pSat=  Medium.saturationPressureLiquid(Tsat=TEvaWetBulOut_nominal),
+      pSat=  Buildings.Utilities.Psychrometrics.Functions.saturationPressureLiquid(TSat=TEvaWetBulOut_nominal),
       p=     nomVal.p_nominal,
       phi=   1);
   TEvaWetBulOut_nominal = (TEvaOut_nominal
@@ -220,7 +218,7 @@ equation
       // an iteration would be done. This would be inefficient because
       // the wet bulb conditions are only needed in this branch.
       XEvaWetBulOut = Buildings.Utilities.Psychrometrics.Functions.X_pSatpphi(
-        pSat=  Medium.saturationPressureLiquid(Tsat=TEvaWetBulOut),
+        pSat=  Buildings.Utilities.Psychrometrics.Functions.saturationPressureLiquid(TSat=TEvaWetBulOut),
         p=     nomVal.p_nominal,
         phi=   1);
       TEvaWetBulOut = (TEvaOut * ((1-XEvaOut) * cpAir_nominal + XEvaOut * cpSte_nominal)
@@ -548,6 +546,13 @@ Florida Solar Energy Center, Technical Report FSEC-CR-1537-05, January 2006.
 </p>
 </html>", revisions="<html>
 <ul>
+<li>
+November 23, 2013 by Michael Wetter:<br/>
+Replaced function calls for moist air properties of the medium package
+to use the functions implemented in 
+<code>Buildings.Utilities.Psychrometrics.Functions</code>
+as the functions have been removed from the medium model.
+</li>
 <li>
 August 21, 2012 by Michael Wetter:<br/>
 First implementation. 

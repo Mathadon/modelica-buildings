@@ -17,7 +17,7 @@ record NominalCondition
         phi=per.phiIn_nominal)
     "Rated/Nominal mass fraction of air entering coil";
   final parameter Modelica.SIunits.SpecificEnthalpy hEvaIn_nominal=
-   Medium.h_pTX(
+   Medium.specificEnthalpy_pTX(
      p=per.p_nominal,
      T=per.TEvaIn_nominal,
      X=cat(1,{XEvaIn_nominal}, {1-sum({XEvaIn_nominal})}))
@@ -46,6 +46,11 @@ These parameters are required to determine the apparatus dew point at the nomina
 </html>",
 revisions="<html>
 <ul>
+<li>
+November 23, 2013 by Michael Wetter:<br/>
+Corrected call to compute <code>Medium.specificEnthalpy_pTX</code>
+as it used the implementation that is not available in all medium models.
+</li>
 <li>
 October 9, 2013 by Michael Wetter:<br/>
 Changed protected parameter <code>Cp_nominal</code> to public, and 
