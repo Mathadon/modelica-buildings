@@ -213,12 +213,16 @@ The following <b style=\"color:red\">critical errors</b> have been fixed (i.e., 
 that can lead to wrong simulation results):
 </p>
 <table class=\"releaseTable\" summary=\"summary\" border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>xxx</b>
+<tr><td colspan=\"2\"><b>Buildings.Fluid</b>
     </td>
 </tr>
-<tr><td valign=\"top\">xxx
+<tr><td valign=\"top\">Buildings.Fluid.HeatExchangers.Boreholes.UTube
     </td>
-    <td valign=\"top\">xxx.
+    <td valign=\"top\">Reimplemented the resistor network inside the borehole
+                       as the old implementation led to too slow a transient
+                       response. This change also led to the removal of the
+                       parameters <code>B0</code> and <code>B1</code>
+                       as the new implementation does not require them.
     </td>
 </tr>
 </table>
@@ -246,12 +250,12 @@ The following
 have been fixed:
 </p>
 <table border=\"1\" summary=\"github issues\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>xxx</b>
+<tr><td colspan=\"2\"><b>Buildings.Fluid</b>
     </td>
 </tr>
-<tr><td valign=\"top\"><a href=\"https://github.com/lbl-srg/modelica-buildings/issues/xxx\">#xxx</a>
+<tr><td valign=\"top\"><a href=\"https://github.com/lbl-srg/modelica-buildings/issues/196\">#196</a>
     </td>
-    <td valign=\"top\">xxx.
+    <td valign=\"top\">Change capacity location in borehole grout.
     </td>
 </tr>
 </table>
@@ -265,6 +269,53 @@ xxx
 </ul>
 </html>"));
 end Version_1_6_build1;
+
+    class Version_1_5_build3 "Version 1.5 build 3"
+      extends Modelica.Icons.ReleaseNotes;
+        annotation (preferredView="info",
+        Documentation(info="<html>
+<p>
+Version 1.5 build 3 is a maintenance release that corrects an error in
+<a href=\"modelica://Buildings.Fluid.MassExchangers.HumidifierPrescribed\">
+Buildings.Fluid.MassExchangers.HumidifierPrescribed</a>.
+It is fully compatible with version 1.5 build 2.
+</p>
+<!-- Errors that have been fixed -->
+<p>
+The following <b style=\"color:red\">critical errors</b> have been fixed (i.e., errors
+that can lead to wrong simulation results):
+<table summary=\"summary\" border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Buildings.Fluid</b>
+    </td>
+</tr>
+<tr><td valign=\"top\">Buildings.Fluid.MassExchangers.HumidifierPrescribed
+    </td>
+    <td valign=\"top\">
+           Corrected the enthalpy balance, which caused the latent heat flow rate to be added
+           twice to the fluid stream.
+           This closes issue <a href=\"https://github.com/lbl-srg/modelica-buildings/issues/197\">#197</a>.
+    </td>
+</tr>
+</table>
+<!-- Github issues -->
+<p>
+The following
+<a href=\"https://github.com/lbl-srg/modelica-buildings/issues\">issues</a>
+have been fixed:
+</p>
+<table summary=\"summary\" border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>HumidifierPrescribed accounts twice for latent heat gain</b>
+    </td>
+</tr>
+<tr><td valign=\"top\"><a href=\"https://github.com/lbl-srg/modelica-buildings/issues/197\">#197</a>
+    </td>
+    <td valign=\"top\">This issue has been addressed by correcting the latent heat added to the
+                       fluid stream.
+    </td>
+</tr>
+</table>
+</html>"));
+    end Version_1_5_build3;
 
 
     class Version_1_5_build2 "Version 1.5 build 2"
@@ -3507,6 +3558,9 @@ on the Buildings library.
 </p>
 <ul>
 <li> 
+<a href=\"modelica://Buildings.UsersGuide.ReleaseNotes.Version_1_5_build3\">Version 1.5 build3</a>(February 12, 2014)
+</li>
+<li> 
 <a href=\"modelica://Buildings.UsersGuide.ReleaseNotes.Version_1_5_build2\">Version 1.5 build2</a>(December 13, 2013)
 </li>
 <li> 
@@ -3632,6 +3686,8 @@ The following people have directly contributed to the implementation of the Buil
 <li>Markus Nurschinger, University of Applied Sciences Technikum Wien, Austria
 </li>
 <li>Xiufeng Pang, Lawrence Berkeley National Laboratory, USA
+</li>
+<li>Damien Picard, KU Leuven, Belgium
 </li>
 <li>Kaustubh Phalak, Lawrence Berkeley National Laboratory, USA
 </li>
@@ -3972,7 +4028,8 @@ dateModified = "2013-10-24",
 uses(Modelica(version="3.2.1")),
 uses(Modelica_StateGraph2(version="2.0.2")),
 conversion(
- noneFromVersion="1.5",
+ from(version="1.5",
+      script="modelica://Buildings/Resources/Scripts/Dymola/ConvertBuildings_from_1.5_to_1.6.mos"),
  from(version="1.4",
       script="modelica://Buildings/Resources/Scripts/Dymola/ConvertBuildings_from_1.4_to_1.5.mos"),
  noneFromVersion="1.3",
