@@ -302,7 +302,6 @@ First implementation.
 
   protected
      Integer n=size(data.V_flow, 1) "Dimension of data vector";
-
      Modelica.SIunits.VolumeFlowRate rat "Ratio of V_flow/r_N";
      Integer i "Integer to select data interval";
 
@@ -311,17 +310,18 @@ First implementation.
       P := r_N^3*data.P[1];
     else
       i :=1;
+      rat:=V_flow/max(0.1,r_N);
       // Since the coefficients for the spline were evaluated for
       // rat_nominal = V_flow_nominal/r_N_nominal = V_flow_nominal/1, we use
       // V_flow_nominal below
       for j in 1:n-1 loop
-         if V_flow > data.V_flow[j] then
+         if rat > data.V_flow[j] then
            i := j;
          end if;
       end for;
       // Extrapolate or interpolate the data
-      P:=r_N^3*Buildings.Utilities.Math.Functions.cubicHermiteLinearExtrapolation(
-                  x=V_flow,
+      P:=r_N^2.75*Buildings.Utilities.Math.Functions.cubicHermiteLinearExtrapolation(
+                  x=rat,
                   x1=data.V_flow[i],
                   x2=data.V_flow[i + 1],
                   y1=data.P[i],
