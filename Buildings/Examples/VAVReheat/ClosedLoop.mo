@@ -1030,7 +1030,6 @@ shading devices, Technical Report, Oct. 17, 2006.
 </html>"),
 __Dymola_Commands(file="modelica://Buildings/Resources/Scripts/Dymola/Examples/VAVReheat/ClosedLoop.mos"
         "Simulate and plot"),
-    experiment(
-      StopTime=172800,
-      Tolerance=1e-006));
+    experiment(StopTime=10000, Tolerance=1e-06),
+    __Dymola_experimentSetupOutput);
 end ClosedLoop;
