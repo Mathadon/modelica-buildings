@@ -360,7 +360,16 @@ function h_pTX
   output SI.SpecificEnthalpy h "Specific enthalpy at p, T, X";
 algorithm
   h := (T - 273.15)*dryair.cp * (1 - X[Water]) + ((T-273.15) * steam.cp + 2501014.5) * X[Water];
-  annotation(smoothOrder=5);
+  annotation(smoothOrder=5,
+             inverse(T=T_phX(p,h,X)),
+      Documentation(revisions="<html>
+<ul>
+<li>
+February 3, 2015, by Filip Jorissen:<br/>
+Added inverse annotation.
+</li>
+</ul>
+</html>"));
 end h_pTX;
 
 function T_phX "Compute temperature from specific enthalpy and mass fraction"
@@ -372,7 +381,16 @@ function T_phX "Compute temperature from specific enthalpy and mass fraction"
   output Temperature T "temperature";
 algorithm
   T := 273.15 + (h-2501014.5 * X[Water])/(dryair.cp * (1 - X[Water])+steam.cp*X[Water]);
-  annotation(smoothOrder=5);
+  annotation(smoothOrder=5,
+             inverse(h=h_pTX(p,T,X)),
+      Documentation(revisions="<html>
+<ul>
+<li>
+February 3, 2015, by Filip Jorissen:<br/>
+Added inverse annotation.
+</li>
+</ul>
+</html>"));
 end T_phX;
 
 redeclare function enthalpyOfNonCondensingGas

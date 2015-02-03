@@ -345,7 +345,16 @@ algorithm
   h := hDryAir * X_air +
        ((T-273.15) * steam.cp + 2501014.5) * X_steam +
        (T - 273.15)*4186*X_liquid;
-  annotation(Inline=false,smoothOrder=1);
+  annotation(Inline=false,smoothOrder=1,
+    inverse(T=T_phX(p,h,X)),
+    Documentation(revisions="<html>
+<ul>
+<li>
+February 3, 2015, by Filip Jorissen:<br/>
+Added inverse annotation.
+</li>
+</ul>
+</html>"));
 end h_pTX;
 
 redeclare function extends specificEnthalpy "Specific enthalpy"
@@ -416,8 +425,16 @@ algorithm
   if (X[Water] > x_sat/(1 + x_sat)) then
      T := Internal.solve(h, TMin, TMax, p, X[1:nXi], steam);
   end if;
-    annotation (Documentation(info="<html>
+    annotation (inverse(h=h_pTX(p,T,X)),
+    Documentation(info="<html>
 Temperature is computed from pressure, specific enthalpy and composition via numerical inversion of function <a href=modelica://Modelica.Media.Air.MoistAir.h_pTX>h_pTX</a>.
+</html>", revisions="<html>
+<ul>
+<li>
+February 3, 2015, by Filip Jorissen:<br/>
+Added inverse annotation.
+</li>
+</ul>
 </html>"));
 end T_phX;
 

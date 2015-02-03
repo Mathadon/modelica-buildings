@@ -339,7 +339,16 @@ algorithm
   hDryAir := (T - 273.15)*dryair.cp;
   h := hDryAir * (1 - X[Water]) +
        ((T-273.15) * steam.cp + 2501014.5) * X[Water];
-  annotation(Inline=false,smoothOrder=5);
+  annotation(Inline=false,smoothOrder=5,
+    inverse(T=T_phX(p,h,X)),
+    Documentation(revisions="<html>
+<ul>
+<li>
+February 3, 2015, by Filip Jorissen:<br/>
+Added inverse annotation.
+</li>
+</ul>
+</html>"));
 end h_pTX;
 
 redeclare function extends specificEnthalpy "Specific enthalpy"
@@ -373,11 +382,20 @@ function T_phX "Compute temperature from specific enthalpy and mass fraction"
 algorithm
   T := 273.15 + (h - 2501014.5 * X[Water])/((1 - X[Water])*dryair.cp + X[Water] * steam.cp);
 
-  annotation(Inline=false, smoothOrder=5,
+  annotation(Inline=false,
+            smoothOrder=5,
+            inverse(h=h_pTX(p,T,X)),
       Documentation(info="<html>
 Temperature as a function of specific enthalpy and species concentration.
 The pressure is input for compatibility with the medium models, but the temperature
 is independent of the pressure.
+</html>", revisions="<html>
+<ul>
+<li>
+February 3, 2015, by Filip Jorissen:<br/>
+Added inverse annotation.
+</li>
+</ul>
 </html>"));
 end T_phX;
 
