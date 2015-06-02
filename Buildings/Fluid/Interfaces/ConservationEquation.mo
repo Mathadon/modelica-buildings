@@ -17,9 +17,7 @@ model ConservationEquation "Lumped volume with mass and energy balance"
   // Set nominal attributes where literal values can be used.
   Medium.BaseProperties medium(
     preferredMediumStates= not (energyDynamics == Modelica.Fluid.Types.Dynamics.SteadyState),
-    p(start=p_start,
-      stateSelect=if not (massDynamics == Modelica.Fluid.Types.Dynamics.SteadyState)
-                     then StateSelect.prefer else StateSelect.default),
+    p(start=p_start),
     h(start=hStart),
     T(start=T_start),
     Xi(start=X_start[1:Medium.nXi],
