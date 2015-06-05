@@ -398,7 +398,6 @@ Modelica.Fluid</a>, and it allows the implementation of
 component models that reuse base classes for heat transfer, mass transfer and
 flow resistance.
 </p>
-
 </html>"));
 
 end UsersGuide;

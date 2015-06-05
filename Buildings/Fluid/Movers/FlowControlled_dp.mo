@@ -53,7 +53,8 @@ model FlowControlled_dp
 
 protected
   Modelica.Blocks.Math.Gain gain(final k=-1)
-    annotation (Placement(transformation(extent={{72,40},{92,60}})));
+    annotation (Placement(transformation(extent={{0,20},{20,40}})));
+
   Modelica.Blocks.Continuous.Filter filter(
      order=2,
      f_cut=5/(2*Modelica.Constants.pi*riseTime),
@@ -170,6 +171,12 @@ User's Guide</a> for more information.
       revisions="<html>
 <ul>
 <li>
+May 1, 2015, by Michael Wetter:<br/>
+Changed sign of <code>dp_actual</code>. This addresses
+<a href=\"https://github.com/iea-annex60/modelica-annex60/issues/226\">
+issue 226</a>.
+</li>
+<li>
 January 6, 2015, by Michael Wetter:<br/>
 Revised model for OpenModelica.
 </li>
@@ -208,6 +215,10 @@ Revised implementation to allow zero flow rate.
           lineColor={0,0,127},
           textString="dp")}),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+<<<<<<< HEAD
             100}}),
             graphics));
+=======
+            100}}), graphics));
+>>>>>>> master
 end FlowControlled_dp;

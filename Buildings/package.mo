@@ -127,11 +127,165 @@ its class name ends with the string <code>Beta</code>.
   package ReleaseNotes "Release notes"
     extends Modelica.Icons.ReleaseNotes;
 
-    class Version_2_0_build1 "Version 2.0 build 1"
+   class Version_2_0_1 "Version 2.0.1"
+     extends Modelica.Icons.ReleaseNotes;
+       annotation (Documentation(info="<html>
+   <p>
+   Version 2.0.1 is ... xxx
+   </p>
+   <!-- New libraries -->
+   <p>
+   The following <b style=\"color:blue\">new libraries</b> have been added:
+   </p>
+   <table class=\"releaseTable\" summary=\"summary\" border=\"1\" cellspacing=0 cellpadding=2>
+   <tr><td valign=\"top\">Buildings.Fluid.FMI
+       </td>
+       <td valign=\"top\">This package contains blocks that serve as containers for exporting
+                          models from <code>Buildings.Fluid</code> as a Functional Mockup Unit (FMU).<br/>
+                          This allows using models from <code>Buildings.Fluid</code>, add them
+                          to a block that only has input and output signals, but no acausal connectors,
+                          and then export the model as a Functional Mockup Unit.
+                          Models can be individual models or systems that are composed of various
+                          models.
+                          For more information, see the
+                          <a href=\"modelica://Buildings.Fluid.FMI.UsersGuide\">User's Guide</a>.
+       </td>
+       </tr>
+   </table>
+   <!-- New components for existing libraries -->
+   <p>
+   The following <b style=\"color:blue\">new components</b> have been added
+   to <b style=\"color:blue\">existing</b> libraries:
+   </p>
+   <table class=\"releaseTable\" summary=\"summary\" border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+   <tr><td colspan=\"2\"><b>xxx</b>
+       </td>
+   </tr>
+   <tr><td valign=\"top\">xxx
+       </td>
+       <td valign=\"top\">xxx.
+       </td> 
+       </tr>
+   </table>
+   <!-- Backward compatible changes -->
+   <p>
+   The following <b style=\"color:blue\">existing components</b>
+   have been <b style=\"color:blue\">improved</b> in a
+   <b style=\"color:blue\">backward compatible</b> way:
+   </p>
+   <table class=\"releaseTable\" summary=\"summary\" border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+   <tr><td colspan=\"2\"><b>Buildings.Fluid</b>
+       </td>
+   </tr>
+   <tr><td valign=\"top\">Buildings.Fluid.Chillers.Carnot<br/>
+                          Buildings.Fluid.HeatExchangers.DXCoils.BaseClasses.PartialDXCoil<br/>
+                          Buildings.Fluid.HeatExchangers.HeaterCooler_u<br/>
+                          Buildings.Fluid.MassExchangers.Humidifier_u
+       </td>
+       <td valign=\"top\">Set parameter <code>prescribedHeatFlowRate=true</code>
+                          which causes a simpler energy balance to be used.
+       </td>
+   </tr>
+   <tr><td valign=\"top\">Buildings.Fluid.Interfaces.FourPortHeatMassExchanger<br/>
+                          Buildings.Fluid.Interfaces.TwoPortHeatMassExchanger
+
+       </td>
+       <td valign=\"top\">Propagated parameter <code>allowFlowReversal</code>
+                          which can cause a simpler energy balance to be used.
+       </td>
+   </tr>
+   <tr><td valign=\"top\">Buildings.Fluid.MixingVolumes.BaseClasses.PartialMixingVolume
+
+
+       </td>
+       <td valign=\"top\">Added test on <code>allowFlowReversal</code> in criteria
+                          about what energy balance implementation to use.
+                          This causes simpler models, for example when exporting
+                          <code>Buildings.Fluid.HeatExchangers.HeaterCooler_u</code>
+                          as an FMU.
+       </td>
+   </tr>
+   <tr><td colspan=\"2\"><b>xxx</b>
+       </td>
+   </tr>
+   <tr><td valign=\"top\">xxx
+       </td>
+       <td valign=\"top\">xxx.
+       </td>
+   </tr>
+   </table>
+   <!-- Non-backward compatible changes to existing components -->
+   <p>
+   The following <b style=\"color:blue\">existing components</b>
+   have been <b style=\"color:blue\">improved</b> in a
+   <b style=\"color:blue\">non-backward compatible</b> way:
+   </p>
+   <table class=\"releaseTable\" summary=\"summary\" border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+    <tr><td colspan=\"2\"><b>xxx</b>
+       </td>
+   </tr>
+   <tr><td valign=\"top\">xxx
+       </td>
+       <td valign=\"top\">xxx.
+       </td>
+   </tr>
+   </table>
+   <!-- Errors that have been fixed -->
+   <p>
+   The following <b style=\"color:red\">critical errors</b> have been fixed (i.e., errors
+   that can lead to wrong simulation results):
+   </p>
+   <table class=\"releaseTable\" summary=\"summary\" border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+   <tr><td colspan=\"2\"><b>Buildings.Fluid</b>
+       </td>
+   </tr>
+   <tr><td valign=\"top\">Buildings.Fluid.Sensors.TraceSubstanceTwoPort
+       </td>
+       <td valign=\"top\">Corrected wrong sensor signal if <code>allowFlowReversal=false</code>.
+                          For this setting, the sensor output was for the wrong flow direction.
+                          This corrects
+                          <a href=\"https://github.com/iea-annex60/modelica-annex60/issues/249\">issue 249</a>.
+       </td>
+   </tr>
+   </table>
+   <!-- Uncritical errors -->
+   <p>
+   The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e., errors
+   that do <b style=\"color:red\">not</b> lead to wrong simulation results, e.g.,
+   units are wrong or errors in documentation):
+   </p>
+   <table class=\"releaseTable\" summary=\"summary\" border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+   <tr><td valign=\"top\">Buildings.Fluid.Interfaces.ConservationEquation<br/>
+                          Buildings.Fluid.Interfaces.StaticTwoPortConservationEquation
+       </td>
+       <td valign=\"top\">Corrected documentation.
+       </td>
+   </tr>
+   <tr><td colspan=\"2\"><b>xxx</b>
+       </td>
+   </tr>
+   <tr><td valign=\"top\">xxx
+       </td>
+       <td valign=\"top\">xxx.
+       </td>
+   </tr>
+   </table>
+   <p>
+   Note:
+   </p>
+   <ul>
+   <li> 
+   xxx
+   </li>
+   </ul>
+   </html>"));
+   end Version_2_0_1;
+
+    class Version_2_0_0 "Version 2.0.0"
       extends Modelica.Icons.ReleaseNotes;
         annotation (Documentation(info="<html>
 <p>
-Version 2.0 build 1 is a major release that contains various new packages, models
+Version 2.0.0 is a major release that contains various new packages, models
 and improvements.
 </p>
 <p>
@@ -427,14 +581,6 @@ have been <b style=\"color:blue\">improved</b> in a
     </td>
 </tr>
 
-<tr><td colspan=\"2\"><b>xxx</b>
-    </td>
-</tr>
-<tr><td valign=\"top\">xxx
-    </td>
-    <td valign=\"top\">xxx.
-    </td>
-</tr>
 </table>
 <!-- Non-backward compatible changes to existing components -->
 <p>
@@ -853,32 +999,15 @@ units are wrong or errors in documentation):
 </tr>
 
 </table>
-<!-- Github issues -->
+
 <p>
-The following
-<a href=\"https://github.com/lbl-srg/modelica-buildings/issues\">issues</a>
-have been fixed:
+<b>Note:</b>
 </p>
-<table border=\"1\" summary=\"github issues\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Buildings.Rooms</b>
-    </td>
-</tr>
-<tr><td valign=\"top\"><a href=\"https://github.com/lbl-srg/modelica-buildings/issues/234\">#234</a>
-    </td>
-    <td valign=\"top\">Division by zero in overhang model.
-    </td>
-</tr>
-</table>
 <p>
-Note:
+With version 2.0, we start using semantic versioning as described at <a href=\"http://semver.org/\">http://semver.org/</a>.
 </p>
-<ul>
-<li>
-xxx
-</li>
-</ul>
 </html>"));
-    end Version_2_0_build1;
+    end Version_2_0_0;
 
     class Version_1_6_build1 "Version 1.6 build 1"
       extends Modelica.Icons.ReleaseNotes;
@@ -4415,7 +4544,10 @@ on the Buildings library.
 </p>
 <ul>
 <li>
-<a href=\"modelica://Buildings.UsersGuide.ReleaseNotes.Version_2_0_build1\">Version 2.0 build1</a>(xxx, 2015)
+<a href=\"modelica://Buildings.UsersGuide.ReleaseNotes.Version_2_0_1\">Version 2.0.1</a>(xxx, 2015)
+</li>
+<li>
+<a href=\"modelica://Buildings.UsersGuide.ReleaseNotes.Version_2_0_0\">Version 2.0.0</a>(May 4, 2015)
 </li>
 <li>
 <a href=\"modelica://Buildings.UsersGuide.ReleaseNotes.Version_1_6_build1\">Version 1.6 build1</a>(June 19, 2014)
@@ -4734,7 +4866,7 @@ You are under no obligation whatsoever to provide any bug fixes, patches, or upg
 At the top level of your Modelica package and at every important subpackage, add the following notices in the info layer of the package:
 </p>
 <ul><li style=\"list-style-type:none\">
-Licensed by The Regents of the University of California, through Lawrence Berkeley National Laboratory under the Modelica License 2 Copyright (c) 2009-2013, The Regents of the University of California, through Lawrence Berkeley National Laboratory.
+Licensed by The Regents of the University of California, through Lawrence Berkeley National Laboratory under the Modelica License 2 Copyright (c) 2009-2015, The Regents of the University of California, through Lawrence Berkeley National Laboratory.
 </li>
 <li style=\"list-style-type:none\"><i>
 This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica license 2, see the license conditions (including the disclaimer of warranty) here or at <a href=\"http://www.modelica.org/modelica-legal-documents/ModelicaLicense2.html\">http://www.modelica.org/modelica-legal-documents/ModelicaLicense2.html</a>.
@@ -4776,7 +4908,7 @@ In these cases, save a copy of the Modelica License 2 in one directory of the di
     Documentation(info="<html>
 <h4><font color=\"#008000\" size=\"5\">Copyright</font></h4>
 <p>
-Copyright (c) 2009-2013, The Regents of the University of California, through Lawrence Berkeley National Laboratory (subject to receipt of any required approvals from the U.S. Dept. of Energy). All rights reserved.
+Copyright (c) 2009-2015, The Regents of the University of California, through Lawrence Berkeley National Laboratory (subject to receipt of any required approvals from the U.S. Dept. of Energy). All rights reserved.
 </p>
 <p>
 If you have questions about your rights to use or distribute this software, please contact Berkeley Lab's Technology Transfer Department at
@@ -4840,7 +4972,10 @@ particular package.<br/>
    </td>
    <td valign=\"top\">Package with valves and air dampers.</td>
 </tr>
-<tr><td valign=\"top\"><a href=\"modelica://Buildings.Fluid.HeatExchangers.DXCoils.UsersGuide\">Fluid.HeatExchangers.DXCoils</a>
+<tr><td valign=\"top\"><a href=\"modelica://Buildings.Fluid.FMI.UsersGuide\">Fluid.FMI</a>
+   </td>
+   <td valign=\"top\">Package with blocks to export thermofluid flow models as Functional Mockup Units.</td>
+</tr><tr><td valign=\"top\"><a href=\"modelica://Buildings.Fluid.HeatExchangers.DXCoils.UsersGuide\">Fluid.HeatExchangers.DXCoils</a>
    </td>
    <td valign=\"top\">Package with direct evaporative cooling coils.</td>
 </tr>
@@ -4905,10 +5040,9 @@ end UsersGuide;
 
 annotation (
 preferredView="info",
-version="2.0",
-versionBuild=0,
-versionDate="2014-06-19",
-dateModified = "2014-06-19",
+version="2.0.1",
+versionDate="2015-05-04",
+dateModified = "2015-05-04",
 uses(Modelica(version="3.2.1"),
      Modelica_StateGraph2(version="2.0.2")),
 conversion(
