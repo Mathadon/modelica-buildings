@@ -180,12 +180,16 @@ equation
   COut = C;
 
   for i in 1:nPorts loop
-    ports_H_flow[i]     = ports[i].m_flow * actualStream(ports[i].h_outflow)
+    ports_H_flow[i]     = semiLinear(ports[i].m_flow, inStream(ports[i].h_outflow), ports[i].h_outflow)
       "Enthalpy flow";
-    ports_mXi_flow[i,:] = ports[i].m_flow * actualStream(ports[i].Xi_outflow)
-      "Component mass flow";
-    ports_mC_flow[i,:]  = ports[i].m_flow * actualStream(ports[i].C_outflow)
-      "Trace substance mass flow";
+    for j in 1:Medium.nXi loop
+      ports_mXi_flow[i,j] = semiLinear(ports[i].m_flow, inStream(ports[i].Xi_outflow[j]), ports[i].Xi_outflow[j])
+        "Component mass flow";
+    end for;
+    for j in 1:Medium.nC loop
+      ports_mC_flow[i,j]  = semiLinear(ports[i].m_flow, inStream(ports[i].C_outflow[j]),  ports[i].C_outflow[j])
+        "Trace substance mass flow";
+    end for;
   end for;
 
   for i in 1:Medium.nXi loop
