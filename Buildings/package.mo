@@ -174,6 +174,19 @@ its class name ends with the string <code>Beta</code>.
    <b style=\"color:blue\">backward compatible</b> way:
    </p>
    <table class=\"releaseTable\" summary=\"summary\" border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+   <tr><td colspan=\"2\"><b>Buildings.Examples</b>
+       </td>
+   </tr>
+   <tr><td valign=\"top\">Buildings.Examples.Tutorial.Boiler.System5<br/>
+                        Buildings.Examples.Tutorial.Boiler.System6<br/>
+                        Buildings.Examples.Tutorial.Boiler.System7
+       </td>
+       <td valign=\"top\">Changed control input for <code>conPIDBoi</code> and set
+                        <code>reverseAction=true</code>
+                        to address issue
+                        <a href=\"https://github.com/lbl-srg/modelica-buildings/issues/436\">#436</a>.
+       </td>
+   </tr>
    <tr><td colspan=\"2\"><b>Buildings.Fluid</b>
        </td>
    </tr>
@@ -184,6 +197,33 @@ its class name ends with the string <code>Beta</code>.
        </td>
        <td valign=\"top\">Set parameter <code>prescribedHeatFlowRate=true</code>
                           which causes a simpler energy balance to be used.
+       </td>
+   </tr>
+   <tr><td valign=\"top\">Buildings.Fluid.Sensors.TemperatureTwoPort
+       </td>
+       <td valign=\"top\">Added option to simulate thermal loss, which is
+                        useful if the sensor is used to measure
+                        the fluid temperature in a system with on/off control
+                        for the mass flow rate.
+       </td>
+   </tr>
+   <tr><td valign=\"top\">Buildings.Fluid.SolarCollectors.ASHRAE93<br/>
+                          Buildings.Fluid.SolarCollectors.EN12975
+       </td>
+       <td valign=\"top\">Corrected sign error in computation of heat loss
+                          that prevents the medium to exceed <code>Medium.T_min</code>
+                          or <code>Medium.T_max</code>. With the previous implementation,
+                          an assertion may be generated unnecessarily rather than
+                          the model guiding against the violation of these bounds.
+       </td>
+   </tr>
+   <tr><td valign=\"top\">Buildings.Fluid.Storage.StratifiedEnhancedInternalHex
+       </td>
+       <td valign=\"top\">Added option to set dynamics of heat exchanger material
+                        separately from the dynamics of the fluid inside the heat
+                        exchanger.
+                        This is for issue
+                        <a href=\"https://github.com/lbl-srg/modelica-buildings/issues/434\">#434</a>.
        </td>
    </tr>
    <tr><td valign=\"top\">Buildings.Fluid.Interfaces.FourPortHeatMassExchanger<br/>
@@ -205,12 +245,17 @@ its class name ends with the string <code>Beta</code>.
                           as an FMU.
        </td>
    </tr>
-   <tr><td colspan=\"2\"><b>xxx</b>
+   <tr><td colspan=\"2\"><b>Buildings.Rooms</b>
        </td>
    </tr>
-   <tr><td valign=\"top\">xxx
+   <tr><td valign=\"top\">Buildings.Rooms.BaseClasses.CFDExchange
        </td>
-       <td valign=\"top\">xxx.
+       <td valign=\"top\">Set <code>start</code> and <code>fixed</code>
+                          attributes in
+                          <code>u[nWri](start=_uStart, each fixed=true)</code>
+                          to avoid a warning in Dymola 2016 about unspecified initial conditions.
+                          This closes
+                          <a href=\"https://github.com/lbl-srg/modelica-buildings/issues/422\">issue 422</a>.
        </td>
    </tr>
    </table>
