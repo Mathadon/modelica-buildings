@@ -104,7 +104,7 @@ equation
       port_a.h_outflow = inStream(port_b.h_outflow) - Q_flow * m_flowInv;
     else
       port_a.m_flow * (inStream(port_a.h_outflow) - port_b.h_outflow) = -Q_flow;
-      port_a.m_flow * (inStream(port_b.h_outflow) - port_a.h_outflow) = +Q_flow;
+      port_a.h_outflow = Medium.h_default;
     end if;
     // Transport of species
     port_a.Xi_outflow = inStream(port_b.Xi_outflow);
