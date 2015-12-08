@@ -1,0 +1,7 @@
+simulateModel("Buildings.Fluid.Movers.Validation.BaseClasses.Extractor", stopTime=1, resultFile="Extractor");
+createPlot(id=1, 
+position={15, 10, 592, 421}, 
+y={"extractorMSL.y", "extractor.y"}, 
+range={0.0, 1.0, -1.5, 1.5}, 
+grid=true, 
+colors={{238,46,47}, {28,108,200}});
