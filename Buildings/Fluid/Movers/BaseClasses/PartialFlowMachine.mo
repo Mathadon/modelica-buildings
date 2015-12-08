@@ -74,9 +74,8 @@ protected
        inputType == Buildings.Fluid.Types.InputType.Constant
     "Constant input set point"
     annotation (Placement(transformation(extent={{-80,70},{-60,90}})));
-  Modelica.Blocks.Routing.Extractor extractor(nin=size(stageInputs, 1), index(
-        fixed=true, start=0)) if
-       inputType == Buildings.Fluid.Types.InputType.Stages
+  Buildings.Fluid.Movers.BaseClasses.Extractor extractor(
+    nin=size(stageInputs, 1)) if inputType == Buildings.Fluid.Types.InputType.Stages
     "Stage input extractor"
     annotation (Placement(transformation(extent={{-50,60},{-30,40}})));
   Modelica.Blocks.Routing.RealPassThrough inputSwitch
@@ -211,6 +210,14 @@ and more robust simulation, in particular if the mass flow is equal to zero.
 </html>",
       revisions="<html>
 <ul>
+<li>
+December 8, 2015, by Filip Jorissen:<br/>
+Now using custom <code>extractor</code> block without using <code>when</code>
+statement.
+This is for issue 
+<a href=\"modelica://https://github.com/lbl-srg/modelica-buildings/issues/472\">
+issue 472</a>.
+</li>
 <li>
 April 2, 2015, by Filip Jorissen:<br/>
 Added code for supporting stage input and constant input.
